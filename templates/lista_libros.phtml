@@ -1,5 +1,5 @@
 <?php require './templates/layout/header.phtml' ?>
-
+<?php require './templates/addBook.phtml' ?>
 
 <ul class="list-group">
 <?php foreach($libros as $libro): ?>
@@ -11,8 +11,9 @@
             <!-- <?php if(!$libro->id_libro): ?> 
                 <a href="finalizar/<?= $libro->id_libro ?>" type="button" class='btn btn-success btn-sm ml-auto'>Finalizar</a> 
             <?php endif ?> -->
-            <a href="delete/<?= $libro->id_libro ?>" type="button" class='btn btn-danger btn-sm ml-auto'>Borrar</a>
-            <a href="infoBook/<?= $libro->id_libro ?>" type="button" class='btn btn-danger btn-sm'>Ver mas</a>
+            <a href="modifyBook/<?= $libro->id_libro ?>" type="button" class='btn btn-warning'>Editar</a>
+            <a href="delete/<?= $libro->id_libro ?>" type="button" class='btn btn-danger'>Borrar</a>
+            <a href="infoBook/<?= $libro->id_libro ?>" type="button" class='btn btn-info'>Ver mas</a>
         </div>
     </li>
 <?php endforeach ?>

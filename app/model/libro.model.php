@@ -18,7 +18,7 @@
             $query = $this->db->prepare("SELECT * FROM `libreria` WHERE `id_libreria` = ?");
             $query ->execute([$libro->id_libreria]);
             $libreria = $query->fetch(PDO::FETCH_OBJ);
-            $libro->id_libreria = $libreria->nombre;
+            $libro->libreria_Nombre = $libreria->nombre;
             return $libro;
         }
 
@@ -32,6 +32,13 @@
             $query = $this->db->prepare("INSERT INTO libros (nombre_libro,genero,editorial,id_libreria) VALUES (?,?,?,?)");
             $query->execute([$nombre,$genero,$editorial,$id_libreria]);
             return $query;
+        }
+
+        public function libreria(){
+            $query = $this->db->prepare("SELECT * FROM `libreria`");
+            $query ->execute();
+            $librerias = $query->fetchAll(PDO::FETCH_OBJ);
+            return $librerias;
         }
 
         public function setBook($id,$nombre,$genero,$editorial,$id_libreria){

@@ -13,7 +13,8 @@
     switch($params[0]){
         case 'home':
             $controller = new LibroController();
-            $controller->showBooks();
+            $librerias = $controller->librerias();
+            $controller->showBooks($librerias);
             break;
         case 'login':
             $controller = new LibroController();
@@ -30,6 +31,15 @@
         case 'addBook':
             $controller = new LibroController();
             $controller->addBook();
+            break;
+        case 'modifyBook':
+            $controller = new LibroController();
+            $librerias = $controller->librerias();
+            $controller->viewModify($librerias,$params[1]);
+            break;
+        case 'modifyOK':
+            $controller = new LibroController();
+            $controller->modifyBook();
             break;
         default:
             $controller = new LibroController();

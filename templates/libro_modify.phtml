@@ -1,0 +1,39 @@
+<?php require './templates/layout/header.phtml' ?>
+    <form method="post" action="modifyOK">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <label for="titulo" class="form-label">
+                Titulo:
+                </label>
+                    <input name="titulo" type="text" class="form-control" placeholder="<?= htmlspecialchars($libro->nombre_libro)?>" value="<?= htmlspecialchars($libro->nombre_libro)?>">
+            </li>
+            <li class="list-group-item">
+                <label for="genero" class="form-label">
+                    Genero:
+                </label>
+                <input name="genero" type="text" class="form-control" placeholder="<?= htmlspecialchars($libro->genero)?>" value="<?= htmlspecialchars($libro->genero)?>" required>
+            </li>
+            <li class="list-group-item">
+                <label for="editorial" class="form-label">
+                    Editorial:
+                </label>
+                <input name="editorial" type="text" class="form-control" placeholder="<?= htmlspecialchars($libro->editorial)?>" value="<?= htmlspecialchars($libro->editorial)?>" required>
+            </li>
+            <div class="list-group-item">
+                <label for="id_libreria" class="form-label">
+                    Libreria:
+                </label>
+                <select name="id_libreria" class="form-control" required>
+                    <?php foreach($librerias as $libreria): ?>
+                        <option value="<?= htmlspecialchars($libreria->id_libreria)?>"><?= htmlspecialchars($libreria->nombre)?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+            <label for="id_libro" class="form-label"></label>
+            <input type="hidden" name="id_libro" class="form-control" value="<?= htmlspecialchars($libro->id_libro)?>">
+        </ul>
+        <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
+    </form>
+
+
+<?php require './templates/layout/footer.phtml' ?>
