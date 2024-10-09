@@ -3,4 +3,4 @@
     const MYSQL_DB = 'libreria';
     const MYSQL_USER = 'root';
     const MYSQL_PASS = '';
-?>
+
