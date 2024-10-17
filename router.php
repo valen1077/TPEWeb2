@@ -54,14 +54,24 @@ switch($params[0]){
         $controller = new LibreriaController();
         $controller->showAddLibraryForm();
         break;
+    
+    // Nueva ruta para mostrar el formulario de modificar una librería
     case 'modifyLibrary':
         $controller = new LibreriaController();
-        $controller->modifyLibrary($params[1]);
+        $controller->modifyLibrary($params[1]); // Cambiar a modifyLibrary()
         break;
+
+    // Nueva ruta para procesar la modificación de la librería
+    case 'modifyLibraryOK':
+        $controller = new LibreriaController();
+        $controller->updateLibrary(); // Cambiar a updateLibrary()
+        break;
+
     case 'deleteLibrary':
         $controller = new LibreriaController();
         $controller->deleteLibrary($params[1]);
-        break;    
+        break;
+    
     default:
         $controller = new LibroController();
         $controller->showError("Parece que tenemos un error 404.");

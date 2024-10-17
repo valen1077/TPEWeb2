@@ -2,7 +2,7 @@
 class LibreriaView {
     private $user = null;
 
-    public function _construct() {
+    public function __construct() {
         $this->user = null;
     }
 
@@ -16,5 +16,10 @@ class LibreriaView {
 
     public function showError($error) {
         require './templates/libreria_error.phtml';
+    }
+
+    // Mostrar formulario de modificación de librería
+    public function modifyLibrary($libreria) {
+        require './templates/libreria_modify.phtml';
     }
 }
