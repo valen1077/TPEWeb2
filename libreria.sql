@@ -11,7 +11,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -20,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `libreria`
 --
+CREATE DATABASE IF NOT EXISTS `libreria` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `libreria`;
 
 -- --------------------------------------------------------
 
@@ -37,9 +38,7 @@ CREATE TABLE `libreria` (
 -- Volcado de datos para la tabla `libreria`
 --
 
-INSERT INTO `libreria` (`id_libreria`, `nombre`, `direccion`) VALUES
-(7, 'Juanes', 'Marconi 1122'),
-(8, 'Don Quijote', 'General Rodriguez 142');
+
 
 -- --------------------------------------------------------
 
@@ -59,10 +58,6 @@ CREATE TABLE `libros` (
 -- Volcado de datos para la tabla `libros`
 --
 
-INSERT INTO `libros` (`id_libro`, `nombre_libro`, `genero`, `editorial`, `id_libreria`) VALUES
-(3, 'Mario', 'Videojuegos', 'Saturno', 7),
-(4, 'El Alquimista', 'Autoayuda', 'Planeta', 7),
-(5, 'El Zorro', 'Accion', 'El mundo', 8);
 
 --
 -- Índices para tablas volcadas
@@ -105,7 +100,8 @@ ALTER TABLE `libros`
 -- Filtros para la tabla `libros`
 --
 ALTER TABLE `libros`
-  ADD CONSTRAINT `libros_ibfk_1` FOREIGN KEY (`id_libreria`) REFERENCES `libreria` (`id_libreria`);
+  ADD CONSTRAINT `libros_ibfk_1` FOREIGN KEY (`id_libreria`) REFERENCES `libreria` (`id_libreria`) ON DELETE CASCADE;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
