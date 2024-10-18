@@ -15,9 +15,9 @@
             $this->view->showBooks($librerias,$libros,$res);
         }
 
-        public function showBook($id,$res){
+        public function showBook($id,$res,$libreria){
             $libro = $this->model->getBook($id);
-            $this->view->showBook($libro,$res);
+            $this->view->showBook($libro,$res,$libreria);
         }
 
         public function showError($error){
@@ -57,6 +57,16 @@
             $id_libreria = $_POST['id_libreria'];
             $this->model->setBook($id,$nombre,$genero,$editorial,$id_libreria);
             header('Location: ' . BASE_URL);
+        }
+
+        public function showBooksByLibrary($id){
+            $libros = $this->model->getBookByLibrary($id);
+            return $libros;
+        }
+
+        public function showBookByid($id){
+            $libro = $this->model->getBook($id);
+            return $libro;
         }
 
     }

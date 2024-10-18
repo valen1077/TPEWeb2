@@ -11,7 +11,7 @@
             require './templates/lista_libros.phtml';
         }
 
-        public function showBook($libro,$res){
+        public function showBook($libro,$res,$libreria){
             require './templates/libro.phtml';
         }
         

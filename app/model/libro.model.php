@@ -15,10 +15,11 @@
             $query ->execute([$id]);
             $libro = $query->fetch(PDO::FETCH_OBJ);
             //
-            $query = $this->db->prepare("SELECT * FROM `libreria` WHERE `id_libreria` = ?");
+
+            /* $query = $this->db->prepare("SELECT * FROM `libreria` WHERE `id_libreria` = ?");
             $query ->execute([$libro->id_libreria]);
             $libreria = $query->fetch(PDO::FETCH_OBJ);
-            $libro->libreria_Nombre = $libreria->nombre;
+            $libro->libreria_Nombre = $libreria->nombre; */
             return $libro;
         }
 
@@ -34,17 +35,18 @@
             return $query;
         }
 
-        public function libreria(){
-            $query = $this->db->prepare("SELECT * FROM `libreria`");
-            $query ->execute();
-            $librerias = $query->fetchAll(PDO::FETCH_OBJ);
-            return $librerias;
-        }
-
         public function setBook($id,$nombre,$genero,$editorial,$id_libreria){
             $query = $this->db->prepare("UPDATE libros SET nombre_libro = ?,genero = ?,editorial = ?,id_libreria = ? WHERE id_libro = ?");
             $query->execute([$nombre,$genero,$editorial,$id_libreria, $id]);
             return $query;
         }
+
+        public function getBookByLibrary($id){
+            $query = $this->db->prepare("SELECT * FROM `libros` WHERE `id_libreria` = ?");
+            $query ->execute([$id]);
+            $libros = $query->fetchAll(PDO::FETCH_OBJ);
+            return $libros;
+        }
+
 
     }

@@ -44,7 +44,11 @@
             break;
         case 'infoBook':
             $controller = new LibroController();
-            $controller->showBook($params[1],$res);
+            $libro = $controller->showBookByid($params[1]);
+            $controller2 = new LibreriaController();
+            $libreria = $controller2->getLibrary($libro->id_libreria);
+            $nameLib = $libreria->nombre;
+            $controller->showBook($params[1],$res,$nameLib);
             break;
         case 'delete':
             sessionAuthMiddlewares($res);

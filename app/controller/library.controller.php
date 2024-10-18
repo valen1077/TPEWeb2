@@ -76,4 +76,9 @@ class LibreriaController {
             $this->view->showError("Libreria eliminada.", $res);
         }
     }
+
+    public function getLibrary($id) {
+        $libreria = $this->model->getLibrary($id); 
+        return $libreria;
+    }
 }
