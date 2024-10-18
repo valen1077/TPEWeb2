@@ -1,0 +1,13 @@
+<?php if($res->getUser()->getId()): ?>
+    <form method="post" action="addLibrary">
+        <div class="mb-3">
+            <label for="libraryName" class="form-label">Nombre de la Librería:</label>
+            <input name="nombre" type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="libraryAddress" class="form-label">Dirección:</label>
+            <input name="direccion" type="text" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar Librería</button>
+    </form>
+<?php endif; ?> 

@@ -1,20 +1,22 @@
 <?php require './templates/layout/header.phtml' ?>
-
-    <form method="post">
+    <?php if($error):  ?>
+        <p class="fs-3"><?= $error ?></p>
+    <?php endif ?>
+    <form method="post" action="login">
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">
-                Email
+            <label for="email" class="form-label">
+                Email o usuario
             </label>
-            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+            <input name="email" type="text" class="form-control" aria-describedby="emailHelp" required>
                 <div id="emailHelp" class="form-text">
                     Nunca compartiremos su correo electrónico con nadie más.
                 </div>
         </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">
+                <label for="password" class="form-label">
                     Contraseña
                 </label>
-                <input name="password" type="password" class="form-control" id="exampleInputPassword1" required>
+                <input name="password" type="password" class="form-control" required>
             </div>
         <button type="submit" class="btn btn-primary">Login</button>
     </form>

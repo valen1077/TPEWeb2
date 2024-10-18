@@ -10,14 +10,14 @@
             $this->view = new LibroView();
         }
 
-        public function showBooks($librerias){
+        public function showBooks($librerias,$res){
             $libros = $this->model->getBooks();
-            $this->view->showBooks($librerias,$libros);
+            $this->view->showBooks($librerias,$libros,$res);
         }
 
-        public function showBook($id){
+        public function showBook($id,$res){
             $libro = $this->model->getBook($id);
-            $this->view->showBook($libro);
+            $this->view->showBook($libro,$res);
         }
 
         public function showError($error){
@@ -40,9 +40,10 @@
             $this->model->addBook($nombre,$genero,$editorial,$id_libreria);
             header('Location: ' . BASE_URL);
         }
-        public function viewModify($librerias,$id){
+        
+        public function viewModify($librerias,$id,$res){
             $libro = $this->model->getBook($id);
-            $this->view->modifyBook($librerias,$libro);
+            $this->view->modifyBook($librerias,$libro,$res);
         }
 
         public function modifyBook(){
@@ -56,15 +57,6 @@
             $id_libreria = $_POST['id_libreria'];
             $this->model->setBook($id,$nombre,$genero,$editorial,$id_libreria);
             header('Location: ' . BASE_URL);
-        }
-
-        public function showLogin(){
-            return $this->view->showLogin();
-        }
-
-        public function librerias(){
-            $librerias = $this->model->libreria();
-            return $librerias;
         }
 
     }

@@ -1,0 +1,24 @@
+<?php require './templates/layout/header.phtml' ?>
+
+    <?php if($res->getUser()->getId()): ?>
+        <form method="post" action="modifyLibraryOK">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <label for="nombre" class="form-label">
+                        Nombre de la Librería:
+                    </label>
+                    <input name="nombre" type="text" class="form-control" placeholder="<?= htmlspecialchars($libreria->nombre)?>" value="<?= htmlspecialchars($libreria->nombre)?>" required>
+                </li>
+                <li class="list-group-item">
+                    <label for="direccion" class="form-label">
+                        Dirección:
+                    </label>
+                    <input name="direccion" type="text" class="form-control" placeholder="<?= htmlspecialchars($libreria->direccion)?>" value="<?= htmlspecialchars($libreria->direccion)?>" required>
+                </li>
+                <input type="hidden" name="id_libreria" value="<?= htmlspecialchars($libreria->id_libreria)?>">
+            </ul>
+            <button type="submit" class="btn btn-primary btn-lg">Confirmar</button>
+        </form>
+    <?php endif; ?> 
+
+<?php require './templates/layout/footer.phtml' ?>

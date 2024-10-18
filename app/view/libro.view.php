@@ -7,11 +7,11 @@
         } 
        
 
-        public function showBooks($librerias,$libros){
+        public function showBooks($librerias,$libros,$res){
             require './templates/lista_libros.phtml';
         }
 
-        public function showBook($libro){
+        public function showBook($libro,$res){
             require './templates/libro.phtml';
         }
         
@@ -19,16 +19,12 @@
             require './templates/addBook.phtml';
         }
 
-        public function modifyBook($librerias,$libro){
+        public function modifyBook($librerias,$libro,$res){
             require './templates/libro_modify.phtml';
         }
 
         public function showError($error){
             require './templates/libro_error.phtml';
-        }
-
-        public function showLogin(){
-            require './templates/login.phtml';
         }
 
     }
