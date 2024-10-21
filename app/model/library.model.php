@@ -46,4 +46,10 @@ class LibreriaModel extends Model {
         $query->execute([$id]);
         return $query->rowCount(); // Devuelve el número de filas afectadas
     }
+
+    public function getBooksByLibrary($id_libreria) {
+        $query = $this->db->prepare("SELECT * FROM libros WHERE id_libreria = ?");
+        $query->execute([$id_libreria]);
+        return $query->fetchAll(PDO::FETCH_OBJ); // Devuelve los libros de la librería
+    }
 }

@@ -109,6 +109,10 @@
             $controller = new LibreriaController();
             $controller->deleteLibrary($params[1],$res);
             break;
+        case 'infoLibrary':
+            $controller = new LibreriaController();
+            $controller->showBooksByLibrary($params[1], $res); // El parámetro $params[1] es el id_libreria
+            break;    
         default:
             $controller = new LibroController();
             $controller->showError("Parece que tenemos un error 404.");

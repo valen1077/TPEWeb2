@@ -81,4 +81,16 @@ class LibreriaController {
         $libreria = $this->model->getLibrary($id); 
         return $libreria;
     }
+
+    public function showBooksByLibrary($id_libreria, $res) {
+        $libros = $this->model->getBooksByLibrary($id_libreria); // Obtiene los libros por id_libreria
+        $libreria = $this->model->getLibrary($id_libreria); // Obtiene la información de la librería
+        if ($libros && $libreria) {
+            $this->view->showBooksByLibrary($libros, $libreria, $res); // Muestra los libros de esa librería
+        } else {
+            $this->view->showError("No se encontraron libros para esta librería.", $res);
+        }
+    }
+    
 }
+

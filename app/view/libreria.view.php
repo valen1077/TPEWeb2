@@ -22,4 +22,8 @@ class LibreriaView {
     public function modifyLibrary($libreria, $res) {
         require './templates/libreria_modify.phtml';
     }
+
+    public function showBooksByLibrary($libros, $libreria, $res) {
+        require './templates/lista_libros_libreria.phtml'; // Carga el archivo phtml de la lista de libros por librería
+    }
 }
