@@ -26,13 +26,10 @@ Clona el repositorio en tu máquina local o descarga los archivos ZIP y descompr
 2. **Mover archivos**
 Copia la carpeta del proyecto a C:\xampp\htdocs\.
 
-3. **Configurar base de datos**
-En http://localhost/phpmyadmin, crea una base de datos, luego importa libreria.sql desde la carpeta del proyecto.
-
-4. **Configurar Conexión**
+3. **Configurar Conexión**
 Edita config.php para ajustar las credenciales de la base de datos.
 
-5. **Configurar Conexión**
+4. **Configurar Conexión**
 Acceder al Sitio: Visita http://localhost/TPEWeb2.
 
 ### Acceso Administrador
