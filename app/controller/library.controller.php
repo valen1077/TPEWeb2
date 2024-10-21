@@ -15,13 +15,12 @@ class LibreriaController {
     public function getLibraries(){
         return $this->model->getLibraries(); 
     }
-    // Mostrar todas las librerías
+
     public function showLibraries($res) {
         $librerias = $this->model->getLibraries(); 
         $this->view->showLibraries($librerias,$res); 
     }
 
-    // Agregar una nueva librería
     public function addLibrary($res) {
         if(!empty($res)){
             if (!empty($_POST['nombre']) && !empty($_POST['direccion'])) {
@@ -35,12 +34,10 @@ class LibreriaController {
         }
     }
 
-    // Mostrar el formulario de agregar librería
     public function showAddLibraryForm($res) {
         $this->view->addLibrary($res); 
     }
 
-    // Mostrar la vista de modificar una librería
     public function modifyLibrary($id,$res) {
         $libreria = $this->model->getLibrary($id); 
         if ($libreria) {
@@ -50,7 +47,6 @@ class LibreriaController {
         }
     }
 
-    // Ejecutar modificación de una librería
     public function updateLibrary($res) {
         if (!empty($_POST['id_libreria']) && !empty($_POST['nombre']) && !empty($_POST['direccion'])) {
             $id = $_POST['id_libreria'];
@@ -63,7 +59,6 @@ class LibreriaController {
         }
     }
 
-    // Eliminar una librería
     public function deleteLibrary($id, $res) {
         if (!empty($id) && is_numeric($id)) { 
             if ($this->model->deleteLibrary($id)) {
@@ -83,10 +78,10 @@ class LibreriaController {
     }
 
     public function showBooksByLibrary($id_libreria, $res) {
-        $libros = $this->model->getBooksByLibrary($id_libreria); // Obtiene los libros por id_libreria
-        $libreria = $this->model->getLibrary($id_libreria); // Obtiene la información de la librería
+        $libros = $this->model->getBooksByLibrary($id_libreria);
+        $libreria = $this->model->getLibrary($id_libreria);
         if ($libros && $libreria) {
-            $this->view->showBooksByLibrary($libros, $libreria, $res); // Muestra los libros de esa librería
+            $this->view->showBooksByLibrary($libros, $libreria, $res); 
         } else {
             $this->view->showError("No se encontraron libros para esta librería.", $res);
         }

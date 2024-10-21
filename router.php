@@ -90,18 +90,16 @@
             $controller->showAddLibraryForm($res);
             break;
         
-        // Nueva ruta para mostrar el formulario de modificar una librería
         case 'modifyLibrary':
             sessionAuthMiddlewares($res);
             $controller = new LibreriaController();
-            $controller->modifyLibrary($params[1],$res); // Cambiar a modifyLibrary()
+            $controller->modifyLibrary($params[1],$res);
             break;
     
-        // Nueva ruta para procesar la modificación de la librería
         case 'modifyLibraryOK':
             sessionAuthMiddlewares($res);
             $controller = new LibreriaController();
-            $controller->updateLibrary($res); // Cambiar a updateLibrary()
+            $controller->updateLibrary($res);
             break;
     
         case 'deleteLibrary':
@@ -111,7 +109,7 @@
             break;
         case 'infoLibrary':
             $controller = new LibreriaController();
-            $controller->showBooksByLibrary($params[1], $res); // El parámetro $params[1] es el id_libreria
+            $controller->showBooksByLibrary($params[1], $res);
             break;    
         default:
             $controller = new LibroController();

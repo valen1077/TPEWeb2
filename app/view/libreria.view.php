@@ -18,12 +18,11 @@ class LibreriaView {
         require './templates/libreria_error.phtml';
     }
 
-    // Mostrar formulario de modificación de librería
     public function modifyLibrary($libreria, $res) {
         require './templates/libreria_modify.phtml';
     }
 
     public function showBooksByLibrary($libros, $libreria, $res) {
-        require './templates/lista_libros_libreria.phtml'; // Carga el archivo phtml de la lista de libros por librería
+        require './templates/lista_libros_libreria.phtml';
     }
 }
