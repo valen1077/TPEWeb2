@@ -1,0 +1,30 @@
+<?php require './templates/layout/header.phtml' ?>
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <h1>
+                <?= htmlspecialchars($libro->nombre_libro)?>
+            </h1>
+        </li>
+        <li class="list-group-item">
+            <h3>
+                Genero: <?= htmlspecialchars($libro->genero)?>
+            </h3>
+        </li>
+        <li class="list-group-item">
+            <h3>
+                Editorial: <?= htmlspecialchars($libro->editorial)?>
+            </h3>
+        </li>
+        <li class="list-group-item">
+            <h3>
+                Libreria: <?= htmlspecialchars($libreria)?>
+            </h3>
+        </li>
+    </ul>
+    <button type="button" class="btn btn-primary btn-lg"><a href="<?php echo BASE_URL?>" class="link-light">Volver</a></button>
+
+
+
+
+<?php require './templates/layout/footer.phtml' ?>
